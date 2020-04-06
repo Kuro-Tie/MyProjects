@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gfx/blackboard.jpg" type="Texture" id=1]
+[ext_resource path="res://HangWorld.gd" type="Script" id=2]
+
+[node name="HangWorld" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HiddenWordToBoard" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FirstLetter" type="RichTextLabel" parent="HiddenWordToBoard"]
+margin_left = 130.0
+margin_top = 130.0
+margin_right = 191.0
+margin_bottom = 196.0
+text = "A"
+
+[node name="FifthLetter" type="RichTextLabel" parent="HiddenWordToBoard"]
+margin_left = 382.124
+margin_top = 130.0
+margin_right = 443.124
+margin_bottom = 196.0
+text = "E"
+
+[node name="FourthLetter" type="RichTextLabel" parent="HiddenWordToBoard"]
+margin_left = 321.124
+margin_top = 130.0
+margin_right = 382.124
+margin_bottom = 196.0
+text = "D"
+
+[node name="ThirdLetter" type="RichTextLabel" parent="HiddenWordToBoard"]
+margin_left = 252.0
+margin_top = 130.0
+margin_right = 313.0
+margin_bottom = 196.0
+text = "C"
+
+[node name="SecondLetter" type="RichTextLabel" parent="HiddenWordToBoard"]
+margin_left = 191.0
+margin_top = 130.0
+margin_right = 252.0
+margin_bottom = 196.0
+text = "B"
+
+[node name="EnterHiddenWord" type="LineEdit" parent="."]
+margin_left = 130.0
+margin_top = 323.0
+margin_right = 512.0
+margin_bottom = 383.0
+
+[node name="LetterToGuessWord" type="LineEdit" parent="."]
+margin_left = 769.219
+margin_top = 323.0
+margin_right = 836.219
+margin_bottom = 383.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoText" type="Label" parent="."]
+margin_left = 130.0
+margin_top = 286.0
+margin_right = 321.0
+margin_bottom = 312.0
+text = "Enter the hidden word to win!"
+
+[node name="InfoTextTwo" type="Label" parent="."]
+margin_left = 575.0
+margin_top = 286.0
+margin_right = 1013.0
+margin_bottom = 323.0
+text = "Enter a letter know to hidden word but beware you have limited trys!"
+[connection signal="text_entered" from="EnterHiddenWord" to="." method="_on_EnterHiddenWord_text_entered"]
+[connection signal="text_changed" from="LetterToGuessWord" to="." method="_on_LetterToGuessWord_text_changed"]
